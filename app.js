@@ -1,7 +1,10 @@
 var express = require('express'),
-    app     = express.createServer(express.logger());
+    app     = express.createServer(express.logger()),
+    port = process.env.PORT || 3000;
 
-app.listen(3030);
+app.listen(port, function(){
+  console.log("listening on " + port);
+});
 
 app.get('/items', function(request, response){
   var menuItems = [
